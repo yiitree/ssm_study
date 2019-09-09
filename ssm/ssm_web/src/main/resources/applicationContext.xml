@@ -14,9 +14,11 @@
 	http://www.springframework.org/schema/tx/spring-tx.xsd">
 	
 <!--spring配置-->
-	<!-- 1、开启spring注解扫描，管理service和dao -->
+
+	<!-- 1、开启spring注解扫描，管理controller,service,dao -->
 	<context:component-scan base-package="com.zr.service"/>
 	<context:component-scan base-package="com.zr.dao"/>
+	<context:component-scan base-package="com.zr.controller"/>
 
 	<!-- 2、配置连接池 -->
 	<context:property-placeholder location="classpath:db.properties"/>
@@ -26,13 +28,25 @@
    		<property name="user" value="${jdbc.username}" />
    		<property name="password" value="${jdbc.password}" />
    	</bean>
+
+	<!-- 3、配置Spring事务管理 -->
+	<!--实例化一个事务管理器-->
+	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource"/>
+	</bean>
+	<!--开启事务管理器对注解的支持-->
+	<tx:annotation-driven transaction-manager="transactionManager"/>
+
+	<!-- 4、对aop进行配置-->
+	<aop:aspectj-autoproxy proxy-target-class="true"/>
+
 <!--spring配置-->
 
-
 <!--配置MyBaits-->
-	<!-- 3、配置MyBatis（把SqlSessionFactory交给IOC管理） -->
+
+	<!-- 配置MyBatis（把SqlSessionFactory交给IOC管理） -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-   		<property name="dataSource" ref="dataSource" />
+   		<property name="dataSource" ref="dataSource"/>
 		<!-- 传入PageHelper的插件(分页插件) -->
 		<property name="plugins">
 			<array>
@@ -48,20 +62,13 @@
 			</array>
 		</property>
    	</bean>
-	<!-- 4、开启MyBatis扫描dao接口 -->
+
+	<!-- 开启MyBatis扫描dao接口 -->
 	<bean id="mapperScanner" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
    		<property name="basePackage" value="com.zr.dao"/>
    	</bean>
+
 <!--配置MyBaits-->
-
-	<!-- 5、配置Spring的声明式事务管理 -->
-	<!--开启事务管理器-->
-	<tx:annotation-driven transaction-manager="transactionManager"/>
-
-   	<!--对事务管理器进行实例化-->
-	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-   		<property name="dataSource" ref="dataSource"/>
-   	</bean>
 
 </beans>
 

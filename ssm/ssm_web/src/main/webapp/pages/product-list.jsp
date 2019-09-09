@@ -162,7 +162,6 @@
 		<!-- @@block = content -->
 
 		<div class="content-wrapper">
-
 			<!-- 内容头部 -->
 			<section class="content-header">
 				<h1>
@@ -178,7 +177,6 @@
 
 			<!-- 正文区域 -->
 			<section class="content">
-
 				<!-- .box-body -->
 				<div class="box box-primary">
 					<div class="box-header with-border">
@@ -295,17 +293,13 @@
 							</div>
 							<div class="box-tools pull-right">
 								<div class="has-feedback">
-									<input type="text" class="form-control input-sm"
-										placeholder="搜索"> <span
-										class="glyphicon glyphicon-search form-control-feedback"></span>
+									<input type="text" class="form-control input-sm" placeholder="搜索">
+									<span class="glyphicon glyphicon-search form-control-feedback"></span>
 								</div>
 							</div>
 							<!--工具栏/-->
-
 						</div>
 						<!-- 数据表格 /-->
-
-
 					</div>
 					<!-- /.box-body -->
 
@@ -322,7 +316,6 @@
 								</select> 条
 							</div>
 						</div>
-
 						<div class="box-tools pull-right">
 							<ul class="pagination">
 								<li><a href="#" aria-label="Previous">首页</a></li>
@@ -336,17 +329,11 @@
 								<li><a href="#" aria-label="Next">尾页</a></li>
 							</ul>
 						</div>
-
 					</div>
 					<!-- /.box-footer-->
-
-
-
 				</div>
-
 			</section>
 			<!-- 正文区域 /-->
-
 		</div>
 		<!-- @@close -->
 		<!-- 内容区域 /-->
@@ -363,7 +350,6 @@
 		<!-- 底部导航 /-->
 
 	</div>
-
 
 	<script
 		src="${pageContext.request.contextPath}/plugins/jQuery/jquery-2.2.3.min.js"></script>

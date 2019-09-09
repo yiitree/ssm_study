@@ -16,7 +16,9 @@ public interface IRoleDao {
             @Result(id = true, property = "id", column = "id"),
             @Result(property = "roleName", column = "roleName"),
             @Result(property = "roleDesc", column = "roleDesc"),
-            @Result(property = "permissions",column = "id",javaType = java.util.List.class,many = @Many(select = "com.zr.dao.IPermissionDao.findPermissionByRoleId"))
+            @Result(property = "permissions",column = "id",
+                    javaType = java.util.List.class,
+                    many = @Many(select = "com.zr.dao.IPermissionDao.findPermissionByRoleId"))
     })
     List<Role> findRoleByUserId(String userId) throws Exception;
 
@@ -32,7 +34,7 @@ public interface IRoleDao {
      * 添加用户角色
      * @param role
      */
-    @Insert("insert into role(roleName,roleDesc) values(#{roleName},#{roleDesc})")
+    @Insert("insert into role(roleName, roleDesc) values(#{roleName},#{roleDesc})")
     void save(Role role) throws Exception;
 
     /**
@@ -49,7 +51,7 @@ public interface IRoleDao {
      * @param roleId
      * @return
      */
-    @Select("select * from permission where id not in (select permissionId from role_permission where roleId=#{roleId})")
+    @Select("select * from permission where id not in (select permissionId from role_permission where roleId = #{roleId})")
     List<Permission> findOtherPermission(String roleId) throws Exception;
 
     /**
@@ -58,6 +60,6 @@ public interface IRoleDao {
      * @param permissionIds
      * @throws Exception
      */
-    @Insert("insert into role_permission(roleId,permissionId) values(#{roleId}, #{permissionIds})")
+    @Insert("insert into role_permission(roleId, permissionId) values(#{roleId}, #{permissionIds})")
     void addPermissionToRole(@Param("roleId") String roleId, @Param("permissionIds") String[] permissionIds) throws Exception;
 }

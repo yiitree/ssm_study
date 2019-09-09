@@ -14,6 +14,10 @@ import java.util.List;
 @Controller
 @RequestMapping("/product")
 public class ProductController {
+
+    @Autowired
+    private IProductService productService;
+
     /**
      * 产品查询
      * @return
@@ -28,10 +32,6 @@ public class ProductController {
         mv.setViewName("product-list");
         return mv;
     }
-
-
-    @Autowired
-    private IProductService productService;
 
     /**
      * 产品添加

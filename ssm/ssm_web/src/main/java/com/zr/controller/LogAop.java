@@ -26,23 +26,27 @@ public class LogAop {
     @Autowired
     private ISysLogService sysLogService;
 
-    private Date visitTime;//访问时间
-    private Class clazz;//访问的类
-    private Method method;//访问的方法
+    private Date visitTime; //开始访问时间
+    private Class clazz;    //访问类
+    private Method method;  //访问方法
 
     /**
-     * 前置通知
-     * 获取：开始访问时间，执行的类，执行的方法
+     * 配置前置通知：
+     * 1、开始访问时间
+     * 2、执行的类
+     * 3、执行的方法
      * @param jp
      */
     @Before("execution(* com.zr.controller.*.*(..))")   //拦截controller下的所有方法
     public void doBefore(JoinPoint jp) throws NoSuchMethodException {
-        visitTime = new Date();//当前时间就是开始访问的时间
-        clazz = jp.getTarget().getClass(); //具体要访问的类
+        //1、开始访问时间
+        visitTime = new Date();
+        //2、访问类
+        clazz = jp.getTarget().getClass();
         String methodName = jp.getSignature().getName(); //获取访问的方法的名称
         Object[] args = jp.getArgs();//获取访问的方法的参数
 
-        //获取具体执行的方法的Method对象
+        //3、获取具体执行的方法的Method对象
         if (args == null || args.length == 0) {
             method = clazz.getMethod(methodName); //只能获取无参数的方法
         } else {
@@ -55,9 +59,11 @@ public class LogAop {
     }
 
     /**
-     * 后置通知
-     * 获取：访问时长，获取url，获取访问的ip，获取当前操作的用户
-     *
+     * 配置后置通知：
+     * 1、访问时长
+     * 2、获取url
+     * 3、获取访问的ip
+     * 4、获取当前操作的用户
      * @param jp
      */
     @After("execution(* com.zr.controller.*.*(..))")   //拦截controller下的所有方法
@@ -76,6 +82,7 @@ public class LogAop {
                 if (methodAnnotation != null) {
                     String[] methodValue = methodAnnotation.value();
                     url = classValue[0] + methodValue[0];
+
                     //3、获取访问的ip
                     String ip = request.getRemoteAddr();
 
@@ -95,7 +102,6 @@ public class LogAop {
 
                     //调用Service完成操作
                     sysLogService.save(sysLog);
-
                 }
             }
         }

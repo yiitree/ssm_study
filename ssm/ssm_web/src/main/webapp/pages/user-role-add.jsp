@@ -1,5 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -12,15 +11,10 @@
 <meta name="keywords" content="AdminLTE2定制版">
 
 <!-- Tell the browser to be responsive to screen width -->
-<meta
-	content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"
-	name="viewport">
+<meta content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" name="viewport">
 
-
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/plugins/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet"
-	href="${pageContext.request.contextPath}/plugins/font-awesome/css/font-awesome.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/bootstrap/css/bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/plugins/font-awesome/css/font-awesome.min.css">
 <link rel="stylesheet"
 	href="${pageContext.request.contextPath}/plugins/ionicons/css/ionicons.min.css">
 <link rel="stylesheet"
@@ -64,7 +58,6 @@
 </head>
 
 <body class="hold-transition skin-purple sidebar-mini">
-
 	<div class="wrapper">
 
 		<!-- 页面头部 -->
@@ -99,60 +92,48 @@
 				<section class="content"> 
 				
 				<input type="hidden" name="userId" value="${user.id}">
-				
 					<table id="dataList"
-							class="table table-bordered table-striped table-hover dataTable">
-							<thead>
+						class="table table-bordered table-striped table-hover dataTable">
+						<thead>
+							<tr>
+								<th class="" style="padding-right: 0px">
+								<input id="selall"
+									type="checkbox" class="icheckbox_square-blue"></th>
+								<th class="sorting_asc">ID</th>
+								<th class="sorting">角色名称</th>
+								<th class="sorting">角色描述</th>
+							</tr>
+						</thead>
+						<tbody>
+							<c:forEach items="${roleList}" var="role">
 								<tr>
-									<th class="" style="padding-right: 0px">
-									<input id="selall" 
-										type="checkbox" class="icheckbox_square-blue"></th>
-									<th class="sorting_asc">ID</th>
-									<th class="sorting">角色名称</th>
-									<th class="sorting">角色描述</th>									
+									<td><input name="ids" type="checkbox" value="${role.id}"></td>
+									<td>${role.id}</td>
+									<td>${role.roleName }</td>
+									<td>${role.roleDesc}</td>
 								</tr>
-							</thead>
-							<tbody>
-								<c:forEach items="${roleList}" var="role">
-									<tr>
-										<td>
-										
-										<input name="ids" type="checkbox" value="${role.id}">
-										
-										</td>
-										<td>${role.id}</td>
-										<td>${role.roleName }</td>
-										<td>${role.roleDesc}</td>
-										
-									</tr>
-								</c:forEach>
-							</tbody>
-
-						</table>
+							</c:forEach>
+						</tbody>
+					</table>
 				<!--订单信息/--> <!--工具栏-->
 				<div class="box-tools text-center">
 					<button type="submit" class="btn bg-maroon">保存</button>
-					<button type="button" class="btn bg-default"
-						onclick="history.back(-1);">返回</button>
+					<button type="button" class="btn bg-default" onclick="history.back(-1);">返回</button>
 				</div>
-				<!--工具栏/--> </section>
+				<!--工具栏/-->
+				</section>
 				<!-- 正文区域 /-->
 			</form>
 		</div>
 		<!-- 内容区域 /-->
-
 		<!-- 底部导航 -->
 		<footer class="main-footer">
-		<div class="pull-right hidden-xs">
-			<b>Version</b> 1.0.8
-		</div>
-		<strong>Copyright &copy; 2014-2017 <a
-			href="http://www.itcast.cn">研究院研发部</a>.
-		</strong> All rights reserved. </footer>
+			<div class="pull-right hidden-xs"><b>Version</b> 1.0.8</div>
+			<strong>Copyright &copy; 2014-2017 <a href="http://www.itcast.cn">研究院研发部</a>.
+			</strong> All rights reserved.
+		</footer>
 		<!-- 底部导航 /-->
-
 	</div>
-
 
 	<script
 		src="${pageContext.request.contextPath}/plugins/jQuery/jquery-2.2.3.min.js"></script>
@@ -260,7 +241,6 @@
 				$(this).data("clicks", !clicks);
 			});
 		});
-
 		// 设置激活菜单
 		function setSidebarActive(tagUri) {
 			var liObj = $("#" + tagUri);
@@ -270,8 +250,6 @@
 			}
 		}
 	</script>
-
-
 </body>
 
 </html>

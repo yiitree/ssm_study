@@ -80,17 +80,14 @@
 
 			<!-- 内容头部 -->
 			<section class="content-header">
-			<h1>
-				日志管理 <small>全部日志</small>
-			</h1>
-			<ol class="breadcrumb">
-				<li><a href="${pageContext.request.contextPath}/index.jsp"><i
-						class="fa fa-dashboard"></i> 首页</a></li>
-				<li><a
-					href="${pageContext.request.contextPath}/sysLog/findAll.do">日志管理</a></li>
-
-				<li class="active">全部日志</li>
-			</ol>
+				<h1>
+					日志管理<small>全部日志</small>
+				</h1>
+				<ol class="breadcrumb">
+					<li><a href="${pageContext.request.contextPath}/index.jsp"><i class="fa fa-dashboard"></i> 首页</a></li>
+					<li><a href="${pageContext.request.contextPath}/sysLog/findAll.do">日志管理</a></li>
+					<li class="active">全部日志</li>
+				</ol>
 			</section>
 			<!-- 内容头部 /-->
 
@@ -131,8 +128,8 @@
 							class="table table-bordered table-striped table-hover dataTable">
 							<thead>
 								<tr>
-									<th class="" style="padding-right: 0px"><input id="selall"
-										type="checkbox" class="icheckbox_square-blue"></th>
+									<th class="" style="padding-right: 0px">
+										<input id="selall" type="checkbox" class="icheckbox_square-blue"></th>
 									<th class="sorting_asc">ID</th>
 									<th class="sorting">访问时间</th>
 									<th class="sorting">访问用户</th>
@@ -156,7 +153,6 @@
 									</tr>
 								</c:forEach>
 							</tbody>
-
 						</table>
 						<!--数据列表/-->
 

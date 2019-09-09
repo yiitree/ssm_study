@@ -96,15 +96,23 @@
 						<div class="panel-heading">产品信息</div>
 						<div class="row data-type">
 							<div class="col-md-2 title">产品编号</div>
-							<div class="col-md-4 data"><input type="text" class="form-control" name="productNum" placeholder="产品编号" value=""></div>
+							<div class="col-md-4 data">
+								<input type="text" class="form-control" name="productNum" placeholder="产品编号" value="">
+							</div>
 							<div class="col-md-2 title">产品名称</div>
-							<div class="col-md-4 data"><input type="text" class="form-control" name="productName" placeholder="产品名称" value=""></div>
+							<div class="col-md-4 data">
+								<input type="text" class="form-control" name="productName" placeholder="产品名称" value="">
+							</div>
 							<div class="col-md-2 title">出发时间</div>
 							<div class="col-md-4 data"><div class="input-group date"><div class="input-group-addon"><i class="fa fa-calendar"></i></div><input type="text" class="form-control pull-right" id="datepicker-a3" name="departureTime"></div></div>
 							<div class="col-md-2 title">出发城市</div>
-							<div class="col-md-4 data"><input type="text" class="form-control" name="cityName" placeholder="出发城市" value=""></div>
+							<div class="col-md-4 data">
+								<input type="text" class="form-control" name="cityName" placeholder="出发城市" value="">
+							</div>
 							<div class="col-md-2 title">产品价格</div>
-							<div class="col-md-4 data"><input type="text" class="form-control" placeholder="产品价格" name="productPrice" value=""></div>
+							<div class="col-md-4 data">
+								<input type="text" class="form-control" placeholder="产品价格" name="productPrice" value="">
+							</div>
 							<div class="col-md-2 title">产品状态</div>
 							<div class="col-md-4 data">
 								<select class="form-control select2" style="width: 100%" name="productStatus">
@@ -113,11 +121,12 @@
 								</select>
 							</div>
 							<div class="col-md-2 title rowHeight2x">其他信息</div>
-							<div class="col-md-10 data rowHeight2x"><textarea class="form-control" rows="3" placeholder="其他信息" name="productDesc"></textarea></div>
+							<div class="col-md-10 data rowHeight2x">
+								<textarea class="form-control" rows="3" placeholder="其他信息" name="productDesc"></textarea>
+							</div>
 						</div>
 					</div>
 					<!--订单信息/-->
-
 					<!--工具栏-->
 					<div class="box-tools text-center">
 						<button type="submit" class="btn bg-maroon">保存</button>
