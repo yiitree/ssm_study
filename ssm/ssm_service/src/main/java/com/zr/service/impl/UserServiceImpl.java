@@ -39,19 +39,19 @@ public class UserServiceImpl implements IUserService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        //对象转换：把dao中传回的userInfo转换封装为UserDetails对象交给框架
+        //对象转换：把dao中传回的userInfo转换封装为user对象交给框架
         User user = new User(
-                userInfo.getUsername(),
-                userInfo.getPassword(),
-                userInfo.getStatus() == 0 ? false : true,   //用户权限集合
-                true,
-                true,
-                true,
-                getAuthority(userInfo.getRoles())
+                userInfo.getUsername(),//用户名
+                userInfo.getPassword(),//用户密码
+                userInfo.getStatus() == 0 ? false : true,   //账户是否可用
+                true,       //帐户未过期
+                true,   //凭据未过期
+                true,       //账户未锁
+                getAuthority(userInfo.getRoles())   //给用户设置权限（权限不止一个，所以为一个数组）
         );
         return user;//给框架返回一个user对象
     }
-    //作用就是返回一个List集合，集合中装入的是角色描述    list<Role>---转换成UserDetails
+    //作用就是返回一个List集合，集合中装入的是角色描述，返回用户权限
     public List<SimpleGrantedAuthority> getAuthority(List<Role> roles) {
         List<SimpleGrantedAuthority> list = new ArrayList<>();
         for (Role role : roles) {
