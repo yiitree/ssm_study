@@ -15,9 +15,5 @@ IDEA
 - 记录日志方面使用springAOP技术，记录各种登录访问信息。
 - GitHub访问地址：https://github.com/yiitree/ssm_study.git
 
-## 截图
-
-
-
 
 
