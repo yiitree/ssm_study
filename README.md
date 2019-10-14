@@ -14,6 +14,14 @@ IDEA
 - 用户权限中使用SpringSecurity框架进行角色权限管理认证。
 - 记录日志方面使用springAOP技术，记录各种登录访问信息。
 - GitHub访问地址：https://github.com/yiitree/ssm_study.git
-
-
+## 截图展示：
+![Image text](https://github.com/yiitree/ssm_study/blob/master/1.png)
+![Image text](https://github.com/yiitree/ssm_study/blob/master/2.png)
+![Image text](https://github.com/yiitree/ssm_study/blob/master/3.png)
+![Image text](https://github.com/yiitree/ssm_study/blob/master/4.png)
+![Image text](https://github.com/yiitree/ssm_study/blob/master/5.png)
+![Image text](https://github.com/yiitree/ssm_study/blob/master/6.png)
+![Image text](https://github.com/yiitree/ssm_study/blob/master/7.png)
+![Image text](https://github.com/yiitree/ssm_study/blob/master/8.png)
+![Image text](https://github.com/yiitree/ssm_study/blob/master/9.png)
 
